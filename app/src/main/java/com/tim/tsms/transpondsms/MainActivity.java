@@ -163,5 +163,15 @@ public class MainActivity extends AppCompatActivity {
         textv_msg.setText(showMsg);
 
     }
+    
+    //按返回键不退出回到桌面
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+    }
+
 
 }
