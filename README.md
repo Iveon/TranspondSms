@@ -29,6 +29,7 @@
 
 ![主界面](/pic/app.jpg "应用主界面")
 ![状态栏运行状态](/pic/taskbar.jpg "状态栏运行状态")
+![钉钉机器人token设置](/pic/dingdingtokenset.jpg "钉钉机器人token设置")
 ![钉钉机器人转发](/pic/dingding.jpg "钉钉机器人转发")
 
 
