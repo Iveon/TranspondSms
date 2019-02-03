@@ -1,5 +1,8 @@
 # TSMS 
 > 信息转发 TranspondSms， 把Android手动的短信通过邮件或者钉钉转出去
+
+博文连接[https://www.jianshu.com/p/608d1b1477e3]   APP下载 [https://pan.baidu.com/s/1kbelTFIf5nwkOY9g6itkvA]
+
 --------
 ## 该工具实现特点和准则：
 * **简单** 只做两件事：监听短信---》转发
