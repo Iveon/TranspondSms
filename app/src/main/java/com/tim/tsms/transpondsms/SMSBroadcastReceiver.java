@@ -16,9 +16,10 @@ import java.util.Date;
 public class SMSBroadcastReceiver  extends BroadcastReceiver {
     private String TAG = "SMSBroadcastReceiver";
     @Override
-    public void onReceive(Context arg0, Intent intent) {
-        Log.d(TAG,"onReceive intent "+intent.getAction());
-        if(intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")){
+    public void onReceive(Context context, Intent intent) {
+        String receiveAction = intent.getAction();
+        Log.d(TAG,"onReceive intent "+receiveAction);
+        if(receiveAction.equals("android.provider.Telephony.SMS_RECEIVED")){
 
             Object[] object=(Object[]) intent.getExtras().get("pdus");
             StringBuilder sb=new StringBuilder();
@@ -37,6 +38,10 @@ public class SMSBroadcastReceiver  extends BroadcastReceiver {
             SendUtil.send_msg(sb.toString());
 
             Log.d(TAG,"短信："+sb.toString());
+        }else if(receiveAction.equals("android.intent.action.BOOT_COMPLETED")){
+            Intent frontServiceIntent = new Intent(context,FrontService.class);
+            context.startService(frontServiceIntent);
+
         }
 
     }
