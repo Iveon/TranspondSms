@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private IntentFilter intentFilter;
     private SMSBroadcastReceiver smsBroadcastReceiver;
     private TextView textv_msg;
-    private CheckBox cb_dingding;
-    private CheckBox cb_email;
+    private CheckBox cb_dingding,cb_email;
     private String TAG = "MainActivity";
 
     @Override
@@ -42,24 +41,15 @@ public class MainActivity extends AppCompatActivity {
         textv_msg.setText(SendHistory.getHistory());
 
 
-        if(SendUtil.send_util_using.contains(Define.DingDing)){
-            cb_dingding.setChecked(true);
-        }else{cb_dingding.setChecked(false);}
-
-        if(SendUtil.send_util_using.contains(Define.Email)){
-            cb_email.setChecked(true);
-        }else{cb_email.setChecked(false);}
+        cb_dingding.setChecked(SendUtil.send_util_using.contains(Define.DingDing));
+        cb_email.setChecked(SendUtil.send_util_using.contains(Define.Email));
 
         cb_dingding.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
                 // TODO Auto-generated method stub
-                if(isChecked){
-                    SendUtil.set_send_util(Define.DingDing,true);
-                }else{
-                    SendUtil.set_send_util(Define.DingDing,false);
-                }
+                SendUtil.set_send_util(Define.DingDing,isChecked);
             }
         });
         cb_email.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
@@ -67,11 +57,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
                 // TODO Auto-generated method stub
-                if(isChecked){
-                    SendUtil.set_send_util(Define.Email,true);
-                }else{
-                    SendUtil.set_send_util(Define.Email,false);
-                }
+                SendUtil.set_send_util(Define.Email,isChecked);
             }
         });
 
@@ -103,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void editSendUtil(View view){
-        if(view.getId()==R.id.floatingActionButtonEmail){
+        if(view.getId()==R.id.emaileditbt){
             final AlertDialog.Builder alertDialog71 = new AlertDialog.Builder(MainActivity.this);
             View view1 = View.inflate(MainActivity.this, R.layout.activity_alter_dialog_setview_email, null);
 
@@ -133,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-        if(view.getId()==R.id.floatingActionButtonDingding){
+        if(view.getId()==R.id.dingdingeditbt){
             final AlertDialog.Builder alertDialog7 = new AlertDialog.Builder(MainActivity.this);
             View view1 = View.inflate(MainActivity.this, R.layout.activity_alter_dialog_setview_dingding, null);
             final EditText et = view1.findViewById(R.id.editTextDingdingToken);
@@ -153,9 +139,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-
-        Toast.makeText(this,"ttt"+view.getId(),Toast.LENGTH_LONG).show();
-
     }
 
     public void showMsg(View view){

@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/textv_msg"
-        android:layout_width="343dp"
+        android:layout_width="0dp"
         android:layout_height="322dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -16,96 +16,102 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:scrollbars="vertical"
         android:text="Hello World!"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:scrollbars="vertical"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@android:color/holo_blue_dark"
         android:onClick="sendMsg"
         android:text="发送测试"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/floatingActionButtonDingding" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@android:color/holo_blue_dark"
         android:onClick="showMsg"
         android:text="显示历史"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/floatingActionButtonEmail" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButtonDingding"
-        android:layout_width="49dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:onClick="editSendUtil"
-        app:backgroundTint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/checkDingding"
-        app:layout_constraintStart_toEndOf="@+id/checkEmail"
-        app:layout_constraintTop_toTopOf="@+id/checkDingding"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@android:drawable/ic_menu_add" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButtonEmail"
-        android:layout_width="49dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:clickable="true"
-        android:onClick="editSendUtil"
-        app:backgroundTint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/checkEmail"
-        app:layout_constraintStart_toEndOf="@+id/checkEmail"
-        app:layout_constraintTop_toTopOf="@+id/checkEmail"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/checkDingding"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:text="钉钉转发"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/checkEmail"
+        app:layout_constraintStart_toEndOf="@+id/emaileditbt"
+        app:layout_constraintTop_toTopOf="@+id/checkEmail" />
 
     <CheckBox
         android:id="@+id/checkEmail"
-        android:layout_width="97dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="邮箱转发"
-        app:layout_constraintBottom_toTopOf="@+id/checkDingding"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textv_msg" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="444dp" />
+
+    <Button
+        android:id="@+id/dingdingeditbt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:onClick="editSendUtil"
+        android:text="@string/setdingdingtitle"
+        app:layout_constraintBottom_toBottomOf="@+id/checkEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/checkDingding"
+        app:layout_constraintTop_toTopOf="@+id/checkEmail" />
+
+    <Button
+        android:id="@+id/emaileditbt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:onClick="editSendUtil"
+        android:text="@string/setemailtitle"
+        app:layout_constraintBottom_toBottomOf="@+id/checkEmail"
+        app:layout_constraintStart_toEndOf="@+id/checkEmail"
+        app:layout_constraintTop_toTopOf="@+id/checkEmail" />
 
 </android.support.constraint.ConstraintLayout>
